@@ -23,8 +23,10 @@ function createNewTaskElement(taskString) {
   editButton.innerText = "Edit";
   editButton.className = "edit";
 
-  deleteButton.className = "delete";
   deleteButtonImg.src = "./remove.svg";
+  deleteButtonImg.alt = "Remove image icon";
+
+  deleteButton.className = "delete";
   deleteButton.appendChild(deleteButtonImg);
 
   listItem.appendChild(checkBox);
