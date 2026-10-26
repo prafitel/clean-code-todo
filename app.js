@@ -82,10 +82,10 @@ function handleTaskCompletion(event) {
 
   completedTasksHolder.appendChild(listItem);
 
-  bindTaskEvents(listItem, taskIncomplete);
+  bindTaskEvents(listItem, handleTaskIncomplete);
 }
 
-function taskIncomplete(event) {
+function handleTaskIncomplete(event) {
   const listItem = event.currentTarget.parentNode;
 
   incompleteTaskHolder.appendChild(listItem);
@@ -110,5 +110,5 @@ for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
 }
 
 for (let i = 0; i < completedTasksHolder.children.length; i++) {
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+  bindTaskEvents(completedTasksHolder.children[i], handleTaskIncomplete);
 }
