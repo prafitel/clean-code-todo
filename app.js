@@ -6,31 +6,51 @@ const addButton = document.querySelector("button");
 const incompleteTaskHolder = document.getElementById("incompleteTasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
 
-function createNewTaskElement(taskString) {
-  const listItem = document.createElement("li");
+function createTaskButtonWithImage(className, imgSrc, imgAlt) {
+  const button = document.createElement("button");
+  const img = document.createElement("img");
+
+  button.type = "button";
+  button.className = className;
+
+  img.src = imgSrc;
+  img.alt = imgAlt;
+
+  button.appendChild(img);
+  return button;
+}
+
+function createBaseTaskElements(taskString) {
   const checkBox = document.createElement("input");
   const label = document.createElement("label");
   const editInput = document.createElement("input");
   const editButton = document.createElement("button");
-  const deleteButton = document.createElement("button");
-  const deleteButtonImg = document.createElement("img");
+
+  checkBox.type = "checkbox";
 
   label.innerText = taskString;
   label.className = "task";
 
-  checkBox.type = "checkbox";
-
   editInput.type = "text";
   editInput.className = "task";
 
+  editButton.type = "button";
   editButton.innerText = EDIT_MODE_TEXT;
   editButton.className = "edit";
 
-  deleteButtonImg.src = "./remove.svg";
-  deleteButtonImg.alt = "Remove image icon";
+  return { checkBox, label, editInput, editButton };
+}
 
-  deleteButton.className = "delete";
-  deleteButton.appendChild(deleteButtonImg);
+function createNewTaskElement(taskString) {
+  const listItem = document.createElement("li");
+
+  const { checkBox, label, editInput, editButton } =
+    createBaseTaskElements(taskString);
+  const deleteButton = createTaskButtonWithImage(
+    "delete",
+    "./remove.svg",
+    "Remove image icon"
+  );
 
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
