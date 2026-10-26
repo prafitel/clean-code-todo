@@ -48,7 +48,7 @@ function handleAddTask() {
     return;
   }
 
-  const listItem = createNewTaskElement(taskInput.value);
+  const listItem = createNewTaskElement(taskText);
 
   incompleteTaskHolder.appendChild(listItem);
 
@@ -108,9 +108,9 @@ function bindTaskEvents(taskListItem, checkBoxEventHandler) {
   const editButton = taskListItem.querySelector("button.edit");
   const deleteButton = taskListItem.querySelector("button.delete");
 
-  editButton.addEventListener("click", handleEditTask);
-  deleteButton.addEventListener("click", handleDeleteTask);
-  checkBox.addEventListener("change", checkBoxEventHandler);
+  editButton.onclick = handleEditTask;
+  deleteButton.onclick = handleDeleteTask;
+  checkBox.onchange = checkBoxEventHandler;
 }
 
 for (const child of incompleteTaskHolder.children) {
