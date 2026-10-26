@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,17 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
-    "prettier": "3.9.10"
+    "prettier": "3.9.10",
+    "husky": "^9.0.0",
+    "lint-staged": "^13.3.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,css,json}": [
+      "prettier --write"
+    ]
   }
 }
