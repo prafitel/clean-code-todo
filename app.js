@@ -1,9 +1,9 @@
 const taskInput = document.getElementById("new-task");
-const addButton = document.getElementsByTagName("button")[0];
+const addButton = document.querySelector("button");
 const incompleteTaskHolder = document.getElementById("incompleteTasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
 
-const createNewTaskElement = function (taskString) {
+function createNewTaskElement(taskString) {
   const listItem = document.createElement("li");
   const checkBox = document.createElement("input");
   const label = document.createElement("label");
@@ -34,7 +34,7 @@ const createNewTaskElement = function (taskString) {
   listItem.appendChild(deleteButton);
 
   return listItem;
-};
+}
 
 function handleAddTask() {
   if (!taskInput.value) {
