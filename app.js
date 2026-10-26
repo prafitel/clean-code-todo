@@ -1,3 +1,6 @@
+const EDIT_MODE_TEXT = "Edit";
+const SAVE_MODE_TEXT = "Save";
+
 const taskInput = document.getElementById("new-task");
 const addButton = document.querySelector("button");
 const incompleteTaskHolder = document.getElementById("incompleteTasks");
@@ -20,7 +23,7 @@ function createNewTaskElement(taskString) {
   editInput.type = "text";
   editInput.className = "task";
 
-  editButton.innerText = "Edit";
+  editButton.innerText = EDIT_MODE_TEXT;
   editButton.className = "edit";
 
   deleteButtonImg.src = "./remove.svg";
@@ -65,10 +68,10 @@ function handleEditTask(event) {
 
   if (isEditMode) {
     label.innerText = editInput.value;
-    editButton.innerText = "Edit";
+    editButton.innerText = EDIT_MODE_TEXT;
   } else {
     editInput.value = label.innerText;
-    editButton.innerText = "Save";
+    editButton.innerText = SAVE_MODE_TEXT;
   }
 
   listItem.classList.toggle("editMode");
