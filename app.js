@@ -76,9 +76,9 @@ function handleEditTask(event) {
 
 function handleDeleteTask(event) {
   const listItem = event.currentTarget.parentNode;
-  const ul = listItem.parentNode;
+  const parentListItem = listItem.parentNode;
 
-  ul.removeChild(listItem);
+  parentListItem.removeChild(listItem);
 }
 
 function handleTaskCompletion(event) {
