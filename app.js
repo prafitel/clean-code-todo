@@ -37,7 +37,9 @@ function createNewTaskElement(taskString) {
 }
 
 function handleAddTask() {
-  if (!taskInput.value) {
+  const taskText = taskInput.value.trim();
+
+  if (!taskText) {
     return;
   }
 
